@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!-- Importe da biblioteca -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/novaEmpresa" var="linkServletNovaEmpresa"/>
-<c:url value="/listaEmpresa" var="linkServletListaEmpresa"/>
+<c:url value="/entrada" var="linkEntradaServlet"/>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +11,7 @@
 </head>
 <body class="text-center">
 	
-	<form action="${linkServletNovaEmpresa}" method="post">
+	<form action="${linkEntradaServlet}" method="post">
 	  <div class="form-group row">
 	    <label for="inputNome" class="col-sm-2 col-form-label">Nome da Empresa</label>
 	    <div class="col-sm-4">
@@ -22,14 +21,14 @@
 	  <div class="form-group row">
 	    <label for="inputdata" class="col-sm-2 col-form-label">Data Abertura</label>
 	    <div class="col-sm-4">
-	    	
+	    <input type="hidden" name="acao" value="NovaEmpresa">	
 	     <input name="data" type="text" class="form-control" id="inputDate" placeholder="Data de Abertura" value="<fmt:formatDate value="${empresa.dataAbertura}" var="data" pattern="dd/MM/yyyy"/>">
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <div class="col-sm-10">
 	      <button type="submit" class="btn btn-primary">Cadastrar</button>
-	      <a href="${linkServletListaEmpresa }">Listar Empresas</a>
+	      <a href="${linkEntradaServlet}?acao=ListaEmpresa">Listar Empresas</a>
 	    </div>
 	  </div>
 	</form>
