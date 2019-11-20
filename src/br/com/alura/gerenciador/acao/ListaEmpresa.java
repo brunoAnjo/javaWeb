@@ -3,7 +3,6 @@ package br.com.alura.gerenciador.acao;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-public class ListarEmpresas {
+public class ListaEmpresa {
 
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Executando metodo");
 		
 		Banco banco = new Banco();
@@ -21,8 +20,7 @@ public class ListarEmpresas {
 		
 		request.setAttribute("empresas", lista);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresa.jsp");
-		rd.forward(request, response);
+		return "forwar:/listaEmpresa.jsp";
 	}
 	
 //	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

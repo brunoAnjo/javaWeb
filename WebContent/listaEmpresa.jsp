@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!-- Importe da biblioteca -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%><!-- Importe da biblioteca -->
 <c:url value="/entrada" var="linkServletEntradaUnica"></c:url> 
+
   
 <!DOCTYPE html>	
 <html>
@@ -10,8 +11,7 @@
 		<c:if test="${not empty empresaNova}">
 			Empresa ${empresaNova} Cadastrada!!
 		</c:if>
-		</br>
-		Lista de Empresas: </br>
+		Lista de Empresas: <br/>
 		<ul>
 			<c:forEach items="${empresas}" var="empresa"><!-- Var se torna a variavel-->
 				<fmt:formatDate value="${empresa.dataAbertura}" var="data" pattern="dd/MM/yyyy"/>

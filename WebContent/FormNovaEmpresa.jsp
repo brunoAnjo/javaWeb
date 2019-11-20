@@ -15,21 +15,23 @@
 	  <div class="form-group row">
 	    <label for="inputNome" class="col-sm-2 col-form-label">Nome da Empresa</label>
 	    <div class="col-sm-4">
-	      <input type="name" name="nome" class="form-control" id="inputNome" placeholder="Nome da Empresa">
+	      <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Nome da Empresa">
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <label for="inputdata" class="col-sm-2 col-form-label">Data Abertura</label>
 	    <div class="col-sm-4">
-	    <input type="hidden" name="acao" value="NovaEmpresa">	
-	     <input name="data" type="text" class="form-control" id="inputDate" placeholder="Data de Abertura" value="<fmt:formatDate value="${empresa.dataAbertura}" var="data" pattern="dd/MM/yyyy"/>">
+	    <input name="data" type="text" class="form-control" id="" placeholder="Data de Abertura" >
 	    </div>
 	  </div>
 	  <div class="form-group row">
+	    
 	    <div class="col-sm-10">
-	      <button type="submit" class="btn btn-primary">Cadastrar</button>
+	    	<input type="hidden" name="acao" value="NovaEmpresa">
+	      <button type="submit" class="btn btn-primary" value="">Cadastrar</button>
 	      <a href="${linkEntradaServlet}?acao=ListaEmpresa">Listar Empresas</a>
 	    </div>
+	  
 	  </div>
 	</form>
 	
