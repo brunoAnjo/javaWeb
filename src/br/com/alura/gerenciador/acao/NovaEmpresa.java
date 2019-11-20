@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-public class NovaEmpresa {
+public class NovaEmpresa implements Acao{
 
-	public String novaEmpresa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Cadastrando nova Empresa");
 		

@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.model.Banco;
 
-public class RemoverEmpresa {
+public class RemovaEmpresa implements Acao{
 
-	public String removerEmpresa(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	@Override
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String idParametro = request.getParameter("id");
     	Integer id = Integer.valueOf(idParametro);

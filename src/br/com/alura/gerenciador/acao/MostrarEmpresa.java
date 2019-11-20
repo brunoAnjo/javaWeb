@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-public class MostrarEmpresa {
+public class MostrarEmpresa implements Acao{
 
-	public String mostrarEmpresa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String idParam = request.getParameter("id");
 		Integer id = Integer.valueOf(idParam);
@@ -22,7 +23,7 @@ public class MostrarEmpresa {
 		//System.out.println(empresa.getNome());
 		request.setAttribute("empresa", empresa);
 		
-		return "forwar:/formAlteraEmpresa.jsp";
+		return "forwar:formAlteraEmpresa.jsp";
 		
 	}
 	

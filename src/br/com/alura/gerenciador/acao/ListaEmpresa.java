@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-public class ListaEmpresa {
+public class ListaEmpresa implements Acao{
 
-	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Executando metodo");
 		
 		Banco banco = new Banco();
@@ -20,7 +21,7 @@ public class ListaEmpresa {
 		
 		request.setAttribute("empresas", lista);
 		
-		return "forwar:/listaEmpresa.jsp";
+		return "forwar:listaEmpresa.jsp";
 	}
 	
 //	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
