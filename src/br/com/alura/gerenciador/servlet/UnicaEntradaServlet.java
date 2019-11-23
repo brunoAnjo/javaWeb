@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.tomcat.util.log.SystemLogHandler;
 
 import br.com.alura.gerenciador.acao.Acao;
 
@@ -20,13 +23,26 @@ public class UnicaEntradaServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String parametroAcao = request.getParameter("acao");
+		
+		System.out.println(parametroAcao);
+		
+		
+		HttpSession session = request.getSession();
+		boolean usuarioNaoLogado = ( session.getAttribute("usuarioLogado") == null );
+		boolean eUmaCaoProtegida = !( parametroAcao.equals("Login") || parametroAcao.equals("LoginForm") );
+		
+		if(usuarioNaoLogado && eUmaCaoProtegida) {
+			System.out.println("entrando na condição");
+			response.sendRedirect("rederict:entrada?acao=LoginForm");
+			return;
+		}
+		
 		String fullNameClasse = "br.com.alura.gerenciador.acao." + parametroAcao;
 
 		String nomeParaoRedirecionamento = null;
 
 		try {
-			Class classe;
-			classe = Class.forName(fullNameClasse);
+			Class classe = Class.forName(fullNameClasse);
 			Acao acao = (Acao) classe.newInstance();
 			nomeParaoRedirecionamento = acao.executar(request, response);
 

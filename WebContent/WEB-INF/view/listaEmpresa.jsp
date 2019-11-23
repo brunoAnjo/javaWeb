@@ -11,6 +11,9 @@
 		<c:if test="${not empty empresaNova}">
 			Empresa ${empresaNova} Cadastrada!!
 		</c:if>
+		Seja bem vindo ${usuarioLogado.nome}
+		<br/>
+		
 		Lista de Empresas: <br/>
 		<ul>
 			<c:forEach items="${empresas}" var="empresa"><!-- Var se torna a variavel-->
