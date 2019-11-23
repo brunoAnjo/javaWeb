@@ -22,17 +22,17 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		String parametroAcao = request.getParameter("acao");
 		
-		HttpSession session = request.getSession();
-		boolean usuarioNaoLogado = ( session.getAttribute("usuarioLogado") == null );
-		boolean eUmaCaoProtegida = !( parametroAcao.equals("Login") || parametroAcao.equals("LoginForm") );
-		
-		
-		if(usuarioNaoLogado && eUmaCaoProtegida) {
-			System.out.println("entrando na condição");
-			response.sendRedirect("rederict:entrada?acao=LoginForm");
-			return;
-		}
-		
+//		HttpSession session = request.getSession();
+//		boolean usuarioNaoLogado = ( session.getAttribute("usuarioLogado") == null );
+//		boolean eUmaCaoProtegida = !( parametroAcao.equals("Login") || parametroAcao.equals("LoginForm") );
+//		
+//		
+//		if(usuarioNaoLogado && eUmaCaoProtegida) {
+//			System.out.println("entrando na condição");
+//			response.sendRedirect("rederict:entrada?acao=LoginForm");
+//			return;
+//		}
+//		
 		String fullNameClasse = "br.com.alura.gerenciador.acao." + parametroAcao;
 
 		String nomeParaoRedirecionamento = null;
