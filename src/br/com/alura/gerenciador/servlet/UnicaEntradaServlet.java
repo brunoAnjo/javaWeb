@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.log.SystemLogHandler;
-
 import br.com.alura.gerenciador.acao.Acao;
 
 @WebServlet("/entrada")
@@ -24,12 +22,10 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		String parametroAcao = request.getParameter("acao");
 		
-		System.out.println(parametroAcao);
-		
-		
 		HttpSession session = request.getSession();
 		boolean usuarioNaoLogado = ( session.getAttribute("usuarioLogado") == null );
 		boolean eUmaCaoProtegida = !( parametroAcao.equals("Login") || parametroAcao.equals("LoginForm") );
+		
 		
 		if(usuarioNaoLogado && eUmaCaoProtegida) {
 			System.out.println("entrando na condição");

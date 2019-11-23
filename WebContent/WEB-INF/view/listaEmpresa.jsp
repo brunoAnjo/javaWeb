@@ -12,6 +12,7 @@
 			Empresa ${empresaNova} Cadastrada!!
 		</c:if>
 		Seja bem vindo ${usuarioLogado.nome}
+		<a href="entrada?acao=Logout">Sair</a>
 		<br/>
 		
 		Lista de Empresas: <br/>
